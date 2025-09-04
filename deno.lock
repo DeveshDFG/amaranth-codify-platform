@@ -8,6 +8,7 @@
     "npm:@sveltejs/kit@^2.22.0": "2.37.0_@sveltejs+vite-plugin-svelte@6.1.4__svelte@5.38.6___acorn@8.15.0__vite@7.1.4___picomatch@4.0.3_svelte@5.38.6__acorn@8.15.0_vite@7.1.4__picomatch@4.0.3_acorn@8.15.0",
     "npm:@sveltejs/vite-plugin-svelte@6": "6.1.4_svelte@5.38.6__acorn@8.15.0_vite@7.1.4__picomatch@4.0.3",
     "npm:@vitest/browser@^3.2.3": "3.2.4_playwright@1.55.0_vitest@3.2.4__@vitest+browser@3.2.4__playwright@1.55.0__vite@7.1.4___picomatch@4.0.3_@testing-library+dom@10.4.1_vite@7.1.4__picomatch@4.0.3",
+    "npm:carbon-components-svelte@~0.89.6": "0.89.6",
     "npm:lefthook@^1.12.3": "1.12.3",
     "npm:playwright@^1.53.0": "1.55.0",
     "npm:svelte-check@4": "4.3.1_svelte@5.38.6__acorn@8.15.0_typescript@5.9.2",
@@ -351,6 +352,10 @@
       "integrity": "sha512-PPOl1mi6lpLNQxnGoyAfschAodRFYXJ+9fs6WHXz7CSWKbOqiMZsubC+BQsVKuul+3vKLuwTHsS2c2y9EoKwxQ==",
       "os": ["win32"],
       "cpu": ["x64"]
+    },
+    "@ibm/telemetry-js@1.10.1": {
+      "integrity": "sha512-aQcDq03BKbgNnkHujHbA950wJVHtJnY0PsMHKyxgRvr3XPgInWjDfgxJQmKIp9I8Vy2wpfe0cGmduJfIX0HewQ==",
+      "bin": true
     },
     "@jridgewell/gen-mapping@0.3.13": {
       "integrity": "sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA==",
@@ -730,6 +735,14 @@
     "callsites@3.1.0": {
       "integrity": "sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ=="
     },
+    "carbon-components-svelte@0.89.6": {
+      "integrity": "sha512-PeQZ3ypgTsZNcFFdssaDbnnNzK9ThFad2Xlxf0c81M5lLD1nzvFN5Sv4NdZd/O3z+4BEVFFvhCCsgwCeXLl4/A==",
+      "dependencies": [
+        "@ibm/telemetry-js",
+        "flatpickr"
+      ],
+      "scripts": true
+    },
     "chai@5.3.3": {
       "integrity": "sha512-4zNhdJD/iOjSH0A05ea+Ke6MU5mmpQcbQsSOkgdaUMJ9zTlDTD/GYlwohmIE2u0gaxHYiVHEn1Fw9mZ/ktJWgw==",
       "dependencies": [
@@ -947,6 +960,9 @@
         "path-exists",
         "unicorn-magic"
       ]
+    },
+    "flatpickr@4.6.9": {
+      "integrity": "sha512-F0azNNi8foVWKSF+8X+ZJzz8r9sE1G4hl06RyceIaLvyltKvDl6vqk9Lm/6AUUCi5HWaIjiUbk7UpeE/fOXOpw=="
     },
     "fsevents@2.3.2": {
       "integrity": "sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==",
@@ -1560,6 +1576,7 @@
         "npm:@sveltejs/kit@^2.22.0",
         "npm:@sveltejs/vite-plugin-svelte@6",
         "npm:@vitest/browser@^3.2.3",
+        "npm:carbon-components-svelte@~0.89.6",
         "npm:lefthook@^1.12.3",
         "npm:playwright@^1.53.0",
         "npm:svelte-check@4",
