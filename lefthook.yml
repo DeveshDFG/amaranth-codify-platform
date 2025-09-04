@@ -1,0 +1,9 @@
+pre-commit:
+  commands:
+    format:
+      run: deno task format
+
+commit-msg:
+  commands:
+    commit-msg:
+      run: deno task --eval commitlint --edit
