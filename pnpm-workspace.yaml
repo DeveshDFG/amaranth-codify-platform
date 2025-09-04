@@ -1,0 +1,4 @@
+onlyBuiltDependencies:
+  - carbon-components-svelte
+  - esbuild
+  - lefthook

@@ -3,15 +3,16 @@
 ## Setup
 
 1. Clone the repository to your local machine.
-2. Install `deno` if you haven't already. You can find instructions [here](https://deno.land/manual/getting_started/installation).
-3. Navigate to the project directory in your terminal.
-4. Run the following command to install the dependencies:
+2. Make sure you have Node.js installed. You can find instructions to install it from [nodejs.org](https://nodejs.org/).
+3. Install `pnpm` if you haven't already. You can find instructions [here](https://pnpm.io/installation).
+4. Navigate to the project directory in your terminal.
+5. Run the following command to install the dependencies:
    ```bash
-   deno install
+   pnpm install
    ```
-5. Start the development server with:
+6. Start the development server with:
    ```bash
-   deno run dev
+   pnpm run dev
    ```
 
 ## Contributing
