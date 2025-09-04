@@ -1,9 +1,12 @@
 pre-commit:
+  parallel: true
   commands:
     format:
-      run: deno task format
+      run: pnpm run format
+    lint:
+      run: pnpm run check
 
 commit-msg:
   commands:
     commit-msg:
-      run: deno task --eval commitlint --edit
+      run: pnpm commitlint --edit $1
