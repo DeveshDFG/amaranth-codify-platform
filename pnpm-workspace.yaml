@@ -1,4 +1,6 @@
 onlyBuiltDependencies:
+  - '@prisma/engines'
   - carbon-components-svelte
   - esbuild
   - lefthook
+  - prisma
