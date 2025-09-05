@@ -5,15 +5,17 @@
 1. Clone the repository to your local machine.
 2. Make sure you have Node.js installed. You can find instructions to install it from [nodejs.org](https://nodejs.org/).
 3. Install `pnpm` if you haven't already. You can find instructions [here](https://pnpm.io/installation).
-4. Navigate to the project directory in your terminal.
-5. Run the following command to install the dependencies:
+4. Install Docker from [docker.com](https://www.docker.com/get-started) and ensure it's running.
+5. Navigate to the project directory in your terminal.
+6. Run the following command to install the dependencies so your editor can resolve them:
    ```bash
    pnpm install
    ```
-6. Start the development server with:
+7. Build the Docker images and start the services:
    ```bash
-   pnpm run dev
+   docker-compose up --build
    ```
+8. Open your browser and go to `http://localhost:8000` to access the application.
 
 ## Contributing
 
