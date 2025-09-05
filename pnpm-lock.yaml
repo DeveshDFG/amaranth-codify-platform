@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@prisma/client':
+        specifier: 6.15.0
+        version: 6.15.0(prisma@6.15.0(typescript@5.9.2))(typescript@5.9.2)
       carbon-components-svelte:
         specifier: ^0.89.6
         version: 0.89.6
@@ -378,6 +381,18 @@ packages:
 
   '@polka/url@1.0.0-next.29':
     resolution: {integrity: sha512-wwQAWhWSuHaag8c4q/KN/vCoeOJYshAIvMQwD4GpSb3OiZklFfvAgmj0VCBBImRpuF/aFgIRzllXlVX93Jevww==}
+
+  '@prisma/client@6.15.0':
+    resolution: {integrity: sha512-wR2LXUbOH4cL/WToatI/Y2c7uzni76oNFND7+23ypLllBmIS8e3ZHhO+nud9iXSXKFt1SoM3fTZvHawg63emZw==}
+    engines: {node: '>=18.18'}
+    peerDependencies:
+      prisma: '*'
+      typescript: '>=5.1.0'
+    peerDependenciesMeta:
+      prisma:
+        optional: true
+      typescript:
+        optional: true
 
   '@prisma/config@6.15.0':
     resolution: {integrity: sha512-KMEoec9b2u6zX0EbSEx/dRpx1oNLjqJEBZYyK0S3TTIbZ7GEGoVyGyFRk4C72+A38cuPLbfQGQvgOD+gBErKlA==}
@@ -1700,6 +1715,11 @@ snapshots:
       '@jridgewell/sourcemap-codec': 1.5.5
 
   '@polka/url@1.0.0-next.29': {}
+
+  '@prisma/client@6.15.0(prisma@6.15.0(typescript@5.9.2))(typescript@5.9.2)':
+    optionalDependencies:
+      prisma: 6.15.0(typescript@5.9.2)
+      typescript: 5.9.2
 
   '@prisma/config@6.15.0':
     dependencies:

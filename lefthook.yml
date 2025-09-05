@@ -2,7 +2,7 @@ pre-commit:
   parallel: true
   commands:
     format:
-      run: pnpm run format
+      run: pnpm run format && pnpm run format:prisma
       stage_fixed: true
     lint:
       run: pnpm run check
