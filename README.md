@@ -23,7 +23,7 @@
    ```bash
    docker-compose up --build
    ```
-8. Open your browser and go to `http://localhost:8000` to access the application.
+8. Open your browser and go to `http://localhost:8000` to access the application. Hot Module Replacement (HMR) should be working, so any changes you make to the code will automatically refresh the browser.
 
 ## Editing database schema
 
@@ -35,7 +35,9 @@ After making changes to the schema, run:
 docker-compose exec web pnpm exec prisma migrate dev
 ```
 
-This will apply the migrations to the database. Make sure to push the migration files to the repository, including those in `./prisma/generated`.
+This will apply the migrations to the database. Make sure to push the migration files to the repository.
+
+If there are migrations pulled from the repository that haven't been applied to your local database, run the same command to apply them:
 
 ## Contributing
 
