@@ -1,5 +1,6 @@
 services:
   web:
+    restart: always
     container_name: web
     depends_on:
       - postgres
