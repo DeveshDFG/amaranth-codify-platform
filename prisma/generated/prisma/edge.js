@@ -118,7 +118,8 @@ const config = {
       value: "prisma-client-js",
     },
     output: {
-      value: "/app/prisma/generated/prisma",
+      value:
+        "/Users/shum/Desktop/projects/amaranth-codify-platform/prisma/generated/prisma",
       fromEnvVar: null,
     },
     config: {
@@ -127,12 +128,13 @@ const config = {
     binaryTargets: [
       {
         fromEnvVar: null,
-        value: "linux-arm64-openssl-3.0.x",
+        value: "darwin-arm64",
         native: true,
       },
     ],
     previewFeatures: [],
-    sourceFilePath: "/app/prisma/schema/schema.prisma",
+    sourceFilePath:
+      "/Users/shum/Desktop/projects/amaranth-codify-platform/prisma/schema/schema.prisma",
     isCustomOutput: true,
   },
   relativeEnvPaths: {
@@ -144,6 +146,7 @@ const config = {
   engineVersion: "85179d7826409ee107a6ba334b5e305ae3fba9fb",
   datasourceNames: ["db"],
   activeProvider: "postgresql",
+  postinstall: true,
   inlineDatasources: {
     db: {
       url: {
