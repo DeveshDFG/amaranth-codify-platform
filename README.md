@@ -17,6 +17,18 @@
    ```
 8. Open your browser and go to `http://localhost:8000` to access the application.
 
+## Editing database schema
+
+The schema files are in `./prisma/schema/`. Opt to use multiple schema files for better organization.
+
+After making changes to the schema, run:
+
+```bash
+docker-compose exec web pnpm exec prisma migrate dev
+```
+
+This will apply the migrations to the database. Make sure to push the migration files to the repository, including those in `./prisma/generated`.
+
 ## Contributing
 
 There are pre-commit hooks set up to ensure code quality and consistency, which will format your code and check commit messages before each commit.
