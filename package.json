@@ -12,7 +12,7 @@
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "test:unit": "vitest",
     "test": "npm run test:unit -- --run",
-    "format": "biome format --write ./src"
+    "format": "biome format --write ."
   },
   "dependencies": {
     "carbon-components-svelte": "^0.89.6"

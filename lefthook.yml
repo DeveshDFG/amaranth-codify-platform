@@ -3,6 +3,7 @@ pre-commit:
   commands:
     format:
       run: pnpm run format
+      stage_fixed: true
     lint:
       run: pnpm run check
 

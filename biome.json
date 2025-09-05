@@ -5,8 +5,22 @@
   },
   "formatter": {
     "enabled": true,
+    "includes": ["**/.*", "!node_modules"],
     "indentStyle": "space",
     "indentWidth": 2
+  },
+  "javascript": {
+    "formatter": {
+      "enabled": true,
+      "quoteStyle": "double",
+      "jsxQuoteStyle": "double"
+    }
+  },
+  "css": {
+    "formatter": {
+      "enabled": true,
+      "quoteStyle": "double"
+    }
   },
   "overrides": [
     {
