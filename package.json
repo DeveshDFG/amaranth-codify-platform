@@ -7,7 +7,7 @@
     "dev": "vite dev --port 8000 --host",
     "build": "vite build",
     "preview": "vite preview --port 8000 --host",
-    "prepare": "lefthook install && (svelte-kit sync || echo '')",
+    "prepare": "lefthook install && (svelte-kit sync || echo '') && prisma generate",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "test:unit": "vitest",
