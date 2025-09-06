@@ -32,7 +32,7 @@ The schema files are in `./prisma/schema/`. Opt to use multiple schema files for
 After making changes to the schema, run:
 
 ```bash
-docker-compose exec web pnpm exec prisma migrate dev
+docker-compose exec web pnpm migrate
 ```
 
 This will apply the migrations to the database. Make sure to push the migration files to the repository.
