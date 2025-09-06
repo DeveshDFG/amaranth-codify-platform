@@ -15,7 +15,8 @@
     "format": "biome format --write .",
     "format:prisma": "for file in prisma/schema/*.prisma; do npx prisma format \"$file\"; done",
     "studio": "prisma studio",
-    "migrate": "prisma migrate dev"
+    "migrate": "prisma migrate dev",
+    "migrate:deploy": "prisma migrate deploy"
   },
   "dependencies": {
     "@prisma/client": "6.15.0",
