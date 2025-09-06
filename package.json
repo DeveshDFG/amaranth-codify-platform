@@ -13,7 +13,8 @@
     "test:unit": "vitest",
     "test": "npm run test:unit -- --run",
     "format": "biome format --write .",
-    "format:prisma": "for file in prisma/schema/*.prisma; do npx prisma format \"$file\"; done"
+    "format:prisma": "for file in prisma/schema/*.prisma; do npx prisma format \"$file\"; done",
+    "studio": "prisma studio"
   },
   "dependencies": {
     "@prisma/client": "6.15.0",
