@@ -37,7 +37,29 @@ docker-compose exec web pnpm migrate
 
 This will apply the migrations to the database. Make sure to push the migration files to the repository.
 
-If there are migrations pulled from the repository that haven't been applied to your local database, run the same command to apply them:
+If there are migrations pulled from the repository that haven't been applied to your local database, run:
+
+```bash
+docker-compose exec web pnpm migrate:deploy
+```
+
+This will apply any pending migrations to the local database without processing any schema changes that potentially conflict with unapplied migrations.
+
+### Database Management
+
+You can use the Prisma CLI to interact with the database. For example, to open the Prisma Studio, run:
+
+```bash
+docker-compose exec web pnpm studio
+```
+
+and navigate to `http://localhost:5555` in your browser.
+
+If there is a specific Prisma command you want to run, you can do so by executing:
+
+```bash
+docker-compose exec web pnpm prisma <command>
+```
 
 ## Contributing
 
