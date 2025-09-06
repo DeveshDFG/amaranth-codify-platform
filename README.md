@@ -15,15 +15,16 @@
 3. Install `pnpm` if you haven't already. You can find instructions [here](https://pnpm.io/installation).
 4. Install Docker from [docker.com](https://www.docker.com/get-started) and ensure it's running.
 5. Navigate to the project directory in your terminal.
-6. Run the following command to install the dependencies so your editor can resolve them:
+6. Run `./setup_env.sh` to create a `.env` file to create the necessary environment variables. Modifying this file or rerunning the script will overwrite any existing `.env` file and will require resetting and wiping the database.
+7. Run the following command to install the dependencies so your editor can resolve them:
    ```bash
    pnpm install
    ```
-7. Build the Docker images and start the services:
+8. Build the Docker images and start the services:
    ```bash
    docker-compose up --build
    ```
-8. Open your browser and go to `http://localhost:8000` to access the application. Hot Module Replacement (HMR) should be working, so any changes you make to the code will automatically refresh the browser.
+9. Open your browser and go to `http://localhost:8000` to access the application. Hot Module Replacement (HMR) should be working, so any changes you make to the code will automatically refresh the browser.
 
 ## Editing database schema
 
