@@ -15,18 +15,32 @@
 3. Install `pnpm` if you haven't already. You can find instructions [here](https://pnpm.io/installation).
 4. Install Docker from [docker.com](https://www.docker.com/get-started) and ensure it's running.
 5. Navigate to the project directory in your terminal.
-6. Run `./setup_env.sh` to create a `.env` file to create the necessary environment variables. Overwriting any environment existing variables in the `.env` file may require resetting and wiping the database.
+6. Run `./setup_env.sh` to create a `.env` with the necessary environment variables. If you need to reset or wipe the database due to changes in environment variables, see the [Emptying the Database](#emptying-the-database) section below.
 7. Run the following command to install the dependencies so your editor can resolve them:
    ```bash
    pnpm install
    ```
 8. Build the Docker images and start the services:
    ```bash
-   docker-compose up --build
+   docker-compose up
    ```
-9. Open your browser and go to `http://localhost:8000` to access the application. Hot Module Replacement (HMR) should be working, so any changes you make to the code will automatically refresh the browser.
 
-## Editing database schema
+Open your browser and go to `http://localhost:8000` to access the application. Hot Module Replacement (HMR) should be working, so any changes you make to the code will automatically refresh the browser.
+
+For subsequent runs, you can simply use the same command, skiping the build step if there are no changes to `docker-compose.yaml`.
+But if there are build changes, such as new dependencies or Dockerfile changes, you should run:
+
+```bash
+docker-compose up --build
+```
+
+so that the images are rebuilt and dependencies are installed.
+
+## Database
+
+The application uses [PostgreSQL](https://www.postgresql.org/) as the database, and [Prisma](https://www.prisma.io/) as the ORM. The database is set up and managed through [Docker](https://www.docker.com/). User authentication is handled using [BetterAuth](https://www.better-auth.com/), so it is recommended to not change user data through Prisma directly.
+
+### Editing database schema
 
 The schema files are in `./prisma/schema/`. Opt to use multiple schema files for better organization.
 
@@ -46,7 +60,7 @@ docker-compose exec web pnpm db:migrate:deploy
 
 This will apply any pending migrations to the local database without processing any schema changes that potentially conflict with unapplied migrations.
 
-### Seeding the database
+### Seeding
 
 Seeding the database is helpful for populating it with initial data for development or testing purposes. To seed the database, run:
 
@@ -68,6 +82,27 @@ If there is a specific Prisma command you want to run, you can do so by executin
 
 ```bash
 docker-compose exec web pnpm prisma <command>
+```
+
+## Emptying the Database
+
+If you need to reset the database to its initial state, you can drop all tables and reapply the migrations. Be cautious, as this will delete all data in the database.
+Resetting the database is easily done by deleting the docker volume that stores the database data. You can do this by running:
+
+```bash
+docker-compose down -v
+```
+
+Then, start the services again with:
+
+```bash
+docker-compose up
+```
+
+and apply the migrations again with:
+
+```bash
+docker-compose exec web pnpm db:migrate
 ```
 
 ## Contributing
