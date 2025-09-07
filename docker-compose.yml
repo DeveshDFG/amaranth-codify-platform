@@ -8,10 +8,6 @@ services:
     ports:
       - "8000:8000"
       - "5555:5555" # port for prisma studio
-    environment:
-      DATABASE_URL: ${DATABASE_URL}
-      BETTER_AUTH_SECRET: ${BETTER_AUTH_SECRET}
-      BETTER_AUTH_URL: ${BETTER_AUTH_URL}
 
     volumes:
       - .:/app
