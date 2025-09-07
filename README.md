@@ -33,7 +33,7 @@ The schema files are in `./prisma/schema/`. Opt to use multiple schema files for
 After making changes to the schema, run:
 
 ```bash
-docker-compose exec web pnpm migrate
+docker-compose exec web pnpm db:migrate
 ```
 
 This will apply the migrations to the database. Make sure to push the migration files to the repository.
@@ -41,17 +41,25 @@ This will apply the migrations to the database. Make sure to push the migration 
 If there are migrations pulled from the repository that haven't been applied to your local database, run:
 
 ```bash
-docker-compose exec web pnpm migrate:deploy
+docker-compose exec web pnpm db:migrate:deploy
 ```
 
 This will apply any pending migrations to the local database without processing any schema changes that potentially conflict with unapplied migrations.
+
+### Seeding the database
+
+Seeding the database is helpful for populating it with initial data for development or testing purposes. To seed the database, run:
+
+```bash
+docker-compose exec web pnpm db:seed
+```
 
 ### Database Management
 
 You can use the Prisma CLI to interact with the database. For example, to open the Prisma Studio, run:
 
 ```bash
-docker-compose exec web pnpm studio
+docker-compose exec web pnpm db:studio
 ```
 
 and navigate to `http://localhost:5555` in your browser.

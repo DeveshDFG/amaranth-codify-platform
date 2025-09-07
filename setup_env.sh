@@ -24,5 +24,13 @@ add_env_var_if_missing "DATABASE_URL" "$DATABASE_URL"
 BETTER_AUTH_SECRET=$(openssl rand -base64 24 | tr -dc 'A-Za-z0-9' | head -c 32)
 BETTER_AUTH_URL="http://localhost:8000"
 
-echo "BETTER_AUTH_SECRET=$BETTER_AUTH_SECRET" >> .env
-echo "BETTER_AUTH_URL=$BETTER_AUTH_URL" >> .env
+add_env_var_if_missing "BETTER_AUTH_SECRET" "$BETTER_AUTH_SECRET"
+add_env_var_if_missing "BETTER_AUTH_URL" "$BETTER_AUTH_URL"
+
+DEFAULT_ADMIN_EMAIL="admin@example.com"
+DEFAULT_ADMIN_PASSWORD=$(openssl rand -base64 24 | tr -dc 'A-Za-z0-9' | head -c 8)
+DEFAULT_ADMIN_NAME="admin"
+
+add_env_var_if_missing "DEFAULT_ADMIN_EMAIL" "$DEFAULT_ADMIN_EMAIL"
+add_env_var_if_missing "DEFAULT_ADMIN_PASSWORD" "$DEFAULT_ADMIN_PASSWORD"
+add_env_var_if_missing "DEFAULT_ADMIN_NAME" "$DEFAULT_ADMIN_NAME"
