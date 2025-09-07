@@ -15,7 +15,7 @@
 3. Install `pnpm` if you haven't already. You can find instructions [here](https://pnpm.io/installation).
 4. Install Docker from [docker.com](https://www.docker.com/get-started) and ensure it's running.
 5. Navigate to the project directory in your terminal.
-6. Run `./setup_env.sh` to create a `.env` file to create the necessary environment variables. Modifying this file or rerunning the script will overwrite any existing `.env` file and will require resetting and wiping the database.
+6. Run `./setup_env.sh` to create a `.env` file to create the necessary environment variables. Overwriting any environment existing variables in the `.env` file may require resetting and wiping the database.
 7. Run the following command to install the dependencies so your editor can resolve them:
    ```bash
    pnpm install
