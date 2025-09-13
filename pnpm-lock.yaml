@@ -17,6 +17,9 @@ importers:
       carbon-components-svelte:
         specifier: ^0.89.6
         version: 0.89.6
+      carbon-icons-svelte:
+        specifier: ^13.5.0
+        version: 13.5.0
     devDependencies:
       '@biomejs/biome':
         specifier: ^2.2.2
@@ -761,6 +764,9 @@ packages:
 
   carbon-components-svelte@0.89.6:
     resolution: {integrity: sha512-PeQZ3ypgTsZNcFFdssaDbnnNzK9ThFad2Xlxf0c81M5lLD1nzvFN5Sv4NdZd/O3z+4BEVFFvhCCsgwCeXLl4/A==}
+
+  carbon-icons-svelte@13.5.0:
+    resolution: {integrity: sha512-kVA4UTilhoHz9BD8NxXh9pbDhZNC6zuIRWctH2cos1W4aoHw4PV5EVPuwo9WKpCkwrLNk/xskasTUxaifEHbqg==}
 
   chai@5.3.3:
     resolution: {integrity: sha512-4zNhdJD/iOjSH0A05ea+Ke6MU5mmpQcbQsSOkgdaUMJ9zTlDTD/GYlwohmIE2u0gaxHYiVHEn1Fw9mZ/ktJWgw==}
@@ -2201,6 +2207,8 @@ snapshots:
     dependencies:
       '@ibm/telemetry-js': 1.10.1
       flatpickr: 4.6.9
+
+  carbon-icons-svelte@13.5.0: {}
 
   chai@5.3.3:
     dependencies:

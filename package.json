@@ -22,7 +22,8 @@
   "dependencies": {
     "@prisma/client": "6.15.0",
     "better-auth": "^1.3.8",
-    "carbon-components-svelte": "^0.89.6"
+    "carbon-components-svelte": "^0.89.6",
+    "carbon-icons-svelte": "^13.5.0"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.2.2",
