@@ -1,8 +1,8 @@
 import type { CarbonTheme } from "carbon-components-svelte/src/Theme/Theme.svelte";
 import { browser } from "$app/environment";
 
-let __theme: CarbonTheme = $state<CarbonTheme>(
-  (browser ? (localStorage.getItem("theme") as CarbonTheme) : null) ?? "g10",
+let __theme: CarbonTheme | null = $state<CarbonTheme | null>(
+  browser ? (localStorage.getItem("theme") as CarbonTheme) : null,
 );
 
 /**
@@ -21,6 +21,8 @@ export const setTheme = (newTheme: CarbonTheme) => {
 
 $effect.root(() => {
   $effect(() => {
-    window.localStorage.setItem("theme", __theme);
+    if (__theme) {
+      window.localStorage.setItem("theme", __theme);
+    }
   });
 });

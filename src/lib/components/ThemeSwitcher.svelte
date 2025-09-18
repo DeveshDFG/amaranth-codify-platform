@@ -30,7 +30,7 @@ function toggleTheme() {
     {:else}
         <Sun color="white" size={24}/>
     {/if}
-    <Theme theme={theme()}/>
+    <Theme theme={theme() ?? "g10"}/>
 </div>
 <style>
     div {
