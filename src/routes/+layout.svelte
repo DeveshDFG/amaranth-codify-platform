@@ -26,5 +26,13 @@ const loading: boolean = $derived(loadingTime < 500 || !theme());
     <LoaderSplash/>
 {:else}
     <Header/>
-    {@render children?.()}
+    <div>
+        {@render children?.()}
+    </div>
 {/if}
+
+<style>
+    div {
+        padding-top: 3rem;
+    }
+</style>
