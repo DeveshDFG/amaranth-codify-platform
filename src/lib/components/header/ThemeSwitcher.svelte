@@ -1,9 +1,6 @@
 <script lang="ts">
-import type { CarbonTheme } from "carbon-components-svelte/src/Theme/Theme.svelte";
 import Theme from "carbon-components-svelte/src/Theme/Theme.svelte";
 import { Moon, Sun } from "carbon-icons-svelte";
-import { onMount } from "svelte";
-import { browser } from "$app/environment";
 import { setTheme, theme } from "$lib/shared/theme.svelte";
 
 let darkMode = $derived(theme() === "g100");

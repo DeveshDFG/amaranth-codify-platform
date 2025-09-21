@@ -1,6 +1,5 @@
 <script lang="ts">
 import { Header } from "carbon-components-svelte";
-import { Home } from "carbon-icons-svelte";
 import ThemeSwitcher from "./ThemeSwitcher.svelte";
 </script>
 
