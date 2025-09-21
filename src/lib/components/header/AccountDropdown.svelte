@@ -7,8 +7,7 @@ import {
 import { User } from "carbon-icons-svelte";
 </script>
 
-<OverflowMenu flipped>
-    <User slot="menu" color="white"/>
+<OverflowMenu icon={User} flipped>
     <OverflowMenuItem text="Sign In" href="/sign-in"/>
     <OverflowMenuItem text="Sign Up" href="/sign-up"/>
 </OverflowMenu>

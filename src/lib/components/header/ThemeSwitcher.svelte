@@ -13,9 +13,9 @@ function toggleTheme() {
 
 <Button on:click={toggleTheme} kind="ghost" size="field" iconDescription={darkMode ? "Switch to light mode" : "Switch to dark mode"}>
     {#if darkMode}
-        <Sun slot="icon" color="white"/>
-    {:else}
         <Moon slot="icon" color="white"/>
+    {:else}
+        <Sun slot="icon" color="black"/>
     {/if}
 </Button>
 <Theme theme={theme() ?? "g10"}/>

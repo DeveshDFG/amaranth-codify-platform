@@ -1,26 +1,24 @@
 <script lang="ts">
-import { Header } from "carbon-components-svelte";
 import AccountDropdown from "./AccountDropdown.svelte";
 import ThemeSwitcher from "./ThemeSwitcher.svelte";
 </script>
 
-<Header company="Amaranth Codify">
+<header>
+    <h6>Amaranth Codify</h6>
     <div>
         <AccountDropdown/>
         <ThemeSwitcher/>
     </div>
-</Header>
+</header>
 
 <style>
-    :global(.bx--header) {
+    header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 0 4em;
-    }
-
-    :global(a.bx--header__name) {
-        padding: 0;
+        height: 3rem;
+        border-bottom: 1px solid var(--cds-border-strong);
     }
 
     div {
