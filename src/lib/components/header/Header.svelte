@@ -13,6 +13,8 @@ import ThemeSwitcher from "./ThemeSwitcher.svelte";
 
 <style>
     header {
+        position: fixed;
+        width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -26,6 +28,5 @@ import ThemeSwitcher from "./ThemeSwitcher.svelte";
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        gap: 1em;
     }
 </style>
