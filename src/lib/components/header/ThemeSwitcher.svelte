@@ -1,4 +1,5 @@
 <script lang="ts">
+import { Button } from "carbon-components-svelte";
 import Theme from "carbon-components-svelte/src/Theme/Theme.svelte";
 import { Moon, Sun } from "carbon-icons-svelte";
 import { setTheme, theme } from "$lib/shared/theme.svelte";
@@ -10,30 +11,11 @@ function toggleTheme() {
 }
 </script>
 
-<div
-    onclick={toggleTheme}
-    onkeydown={(e) => {
-        if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            toggleTheme();
-        }
-    }}
-    tabindex="0"
-    role="button"
-    aria-pressed={darkMode}
->
+<Button on:click={toggleTheme} kind="ghost" size="field" iconDescription={darkMode ? "Switch to light mode" : "Switch to dark mode"}>
     {#if darkMode}
-        <Moon color="white" size={24}/>
+        <Sun slot="icon" color="white"/>
     {:else}
-        <Sun color="white" size={24}/>
+        <Moon slot="icon" color="white"/>
     {/if}
-    <Theme theme={theme() ?? "g10"}/>
-</div>
-<style>
-    div {
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 0.5em;
-    }
-</style>
+</Button>
+<Theme theme={theme() ?? "g10"}/>
