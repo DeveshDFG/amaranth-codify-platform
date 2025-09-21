@@ -23,6 +23,9 @@ $effect.root(() => {
   $effect(() => {
     if (__theme) {
       window.localStorage.setItem("theme", __theme);
+    } else {
+      __theme = "g10"; // default theme
+      window.localStorage.setItem("theme", __theme);
     }
   });
 });
