@@ -1,20 +1,10 @@
 <script lang="ts">
-import {
-  OverflowMenu,
-  OverflowMenuItem,
-  Theme,
-} from "carbon-components-svelte";
+import { OverflowMenu, OverflowMenuItem } from "carbon-components-svelte";
 import { User } from "carbon-icons-svelte";
-import { onMount } from "svelte";
+import { authClient } from "$lib/auth-client";
 
-let signedIn: boolean = $state(false);
-
-onMount(async () => {
-  let response = await fetch("/api/me");
-  if (response.ok) {
-    signedIn = true;
-  }
-});
+const session = authClient.useSession();
+let signedIn: boolean = $derived($session?.data !== null);
 </script>
 
 <OverflowMenu icon={User} flipped>
