@@ -1,10 +1,16 @@
 <script lang="ts">
 import { Loading } from "carbon-components-svelte";
+import { onMount } from "svelte";
+import { useLoading } from "$lib/shared/loading.svelte";
+
+const { isLoading } = useLoading();
 </script>
 
-<div>
-    <Loading/>
-</div>
+{#if isLoading()}
+    <div>
+        <Loading/>
+    </div>
+{/if}
 
 <style>
     :global(.bx--loading__stroke) {
@@ -19,5 +25,10 @@ import { Loading } from "carbon-components-svelte";
         display: flex;
         justify-content: center;
         align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+
     }
 </style>
