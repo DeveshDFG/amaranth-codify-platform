@@ -3,6 +3,7 @@ import favicon from "$lib/assets/favicon.svg";
 import "carbon-components-svelte/css/all.css";
 import Header from "$lib/components/header/Header.svelte";
 import LoaderSplash from "$lib/components/LoaderSplash.svelte";
+import { theme } from "$lib/shared/theme.svelte";
 
 let { children } = $props();
 </script>
@@ -12,10 +13,12 @@ let { children } = $props();
 </svelte:head>
 
 <LoaderSplash/>
-<Header/>
-<div>
-    {@render children?.()}
-</div>
+{#if theme()}
+    <Header/>
+    <div>
+        {@render children?.()}
+    </div>
+{/if}
 
 <style>
     div {
