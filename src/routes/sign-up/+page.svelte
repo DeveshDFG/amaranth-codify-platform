@@ -1,12 +1,9 @@
 <script lang="ts">
-import {
-  Button,
-  FluidForm,
-  PasswordInput,
-  TextInput,
-} from "carbon-components-svelte";
+import { Button, PasswordInput, TextInput } from "carbon-components-svelte";
 import { onMount } from "svelte";
+import { applyAction, enhance } from "$app/forms";
 import { goto } from "$app/navigation";
+import { useLoading } from "$lib/shared/loading.svelte";
 import { isValidEmail, isValidPassword, isValidUsername } from "$lib/string";
 import type { PageProps } from "./$types";
 
@@ -42,6 +39,8 @@ $effect(() => {
 let disabled = $derived(
   !passwordInput || !passwordsMatch || !passwordValid || !emailValid,
 );
+
+const { startLoading, stopLoading } = useLoading();
 </script>
 
 <div>
@@ -51,13 +50,21 @@ let disabled = $derived(
         {#if !form?.success && form?.message}
             <p style="color: red">{form.message}</p>
         {/if}
-        <FluidForm method="POST" action="/sign-up">
+        <form method="POST" action="/sign-up" class="bx--form--fluid  bx--form" use:enhance={() => {
+            startLoading()
+    		return async ({ result }) => {
+       			await applyAction(result)
+                passwordInput = "";
+                passwordConfirmInput = "";
+                stopLoading();
+    		};
+    	}}>
             <TextInput invalid={!usernameValid && usernameInput.length > 0} bind:value={usernameInput} invalidText="Username must be between 3 and 36 characters, start with a letter, and can only contain letters, numbers, and underscores (no spaces or special characters)." labelText="Username" type="text" name="username" required />
             <TextInput invalid={!emailValid && emailInput.length > 0} bind:value={emailInput} invalidText="Please enter a valid email address" labelText="Email" type="email" name="email" required />
             <PasswordInput invalid={!passwordValid && passwordInput.length > 0} invalidText={"Passwords must contain at least 8 characters, one uppercase letter, one lowercase letter, one digit, and one special character"} bind:value={passwordInput} labelText="Password" name="password" required />
             <PasswordInput invalid={!passwordsMatch && shouldCheckMatchingPasswords} invalidText="Passwords must match" bind:value={passwordConfirmInput} labelText="Confirm Password" required />
             <Button {disabled} type="submit">Create Account</Button>
-        </FluidForm>
+        </form>
     {:else}
         <p>Account created successfully! Redirecting to sign in...</p><p>If it doesn't redirect automatically, <a href="/sign-in">click here</a>.</p>
     {/if}
