@@ -1,4 +1,5 @@
 import { auth } from "$lib";
+import { isValidEmail, isValidPassword, isValidUsername } from "$lib/string";
 import type { Actions } from "./$types";
 
 export const actions = {
@@ -16,9 +17,19 @@ export const actions = {
       return { success: false, message: "Invalid form data" };
     }
 
+    if (!isValidEmail(email)) {
+      return { success: false, message: "Invalid email format" };
+    }
+    if (!isValidUsername(username)) {
+      return { success: false, message: "Invalid username format" };
+    }
+    if (!isValidPassword(password)) {
+      return { success: false, message: "Invalid password format" };
+    }
+
     try {
       await auth.api.signUpEmail({
-        body: { email, password, name: username },
+        body: { email, password, name: username, username },
       });
     } catch (e: any) {
       return { success: false, message: e.body.message as string };
