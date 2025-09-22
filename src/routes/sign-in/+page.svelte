@@ -19,7 +19,7 @@ let invalid = $derived(!emailInput || !passwordInput);
         <p style="color: red">{errorMessage}</p>
     {/if}
     <FluidForm method="POST" action="/sign-in">
-        <TextInput bind:value={emailInput} labelText="Email" type="email" name="email" required />
+        <TextInput bind:value={emailInput} labelText="Email or Username" type="text" name="emailOrUsername" required />
         <TextInput bind:value={passwordInput} labelText="Password" type="password" name="password" required />
         <Button disabled={invalid} type="submit">Sign In</Button>
     </FluidForm>
