@@ -8,7 +8,8 @@ services:
     ports:
       - "8000:8000"
       - "5555:5555" # port for prisma studio
-
+    env_file:
+      - .env
     volumes:
       - .:/app
       - /app/node_modules
