@@ -3,6 +3,7 @@ import { Button, TextInput } from "carbon-components-svelte";
 import { applyAction, enhance } from "$app/forms";
 import { useLoading } from "$lib/shared/loading.svelte";
 import type { PageProps } from "./$types";
+import { signInGoogle } from "$lib/auth-client";
 
 let { form }: PageProps = $props();
 
@@ -31,6 +32,8 @@ const { startLoading, stopLoading } = useLoading();
         <TextInput bind:value={emailInput} labelText="Email or Username" type="text" name="emailOrUsername" required />
         <TextInput bind:value={passwordInput} labelText="Password" type="password" name="password" required />
         <Button disabled={invalid} type="submit">Sign In</Button>
+        <br>
+        <Button on:click={signInGoogle}>Sign in with Google</Button>
     </form>
 </div>
 
