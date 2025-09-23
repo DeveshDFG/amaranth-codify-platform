@@ -6,6 +6,7 @@ import { goto } from "$app/navigation";
 import { useLoading } from "$lib/shared/loading.svelte";
 import { isValidEmail, isValidPassword, isValidUsername } from "$lib/string";
 import type { PageProps } from "./$types";
+import { signInGoogle } from "$lib/auth-client";
 
 let { form }: PageProps = $props();
 
@@ -64,6 +65,8 @@ const { startLoading, stopLoading } = useLoading();
             <PasswordInput invalid={!passwordValid && passwordInput.length > 0} invalidText={"Passwords must contain at least 8 characters, one uppercase letter, one lowercase letter, one digit, and one special character"} bind:value={passwordInput} labelText="Password" name="password" required />
             <PasswordInput invalid={!passwordsMatch && shouldCheckMatchingPasswords} invalidText="Passwords must match" bind:value={passwordConfirmInput} labelText="Confirm Password" required />
             <Button {disabled} type="submit">Create Account</Button>
+            <br>
+            <Button on:click={signInGoogle}>Sign in with Google</Button>
         </form>
     {:else}
         <p>Account created successfully! Redirecting to sign in...</p><p>If it doesn't redirect automatically, <a href="/sign-in">click here</a>.</p>
