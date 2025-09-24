@@ -2,7 +2,7 @@ import { type Handle, redirect } from "@sveltejs/kit";
 import { sequence } from "@sveltejs/kit/hooks";
 import { svelteKitHandler } from "better-auth/svelte-kit";
 import { building } from "$app/environment";
-import { auth } from "$lib/auth";
+import { auth } from "$lib/server";
 
 /**
  * Automatically set the locals of the request if there is a session detected

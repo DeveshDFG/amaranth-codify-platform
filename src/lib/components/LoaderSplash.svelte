@@ -1,7 +1,6 @@
 <script lang="ts">
 import { Loading } from "carbon-components-svelte";
-import { onMount } from "svelte";
-import { useLoading } from "$lib/shared/loading.svelte";
+import { useLoading } from "$lib/shared";
 
 const { isLoading } = useLoading();
 </script>
