@@ -1,4 +1,4 @@
-import { auth } from "$lib";
+import { auth } from "$lib/server";
 import { isValidEmail, isValidPassword, isValidUsername } from "$lib/string";
 import type { Actions } from "./$types";
 

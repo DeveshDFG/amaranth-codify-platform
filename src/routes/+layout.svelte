@@ -3,7 +3,7 @@ import favicon from "$lib/assets/favicon.svg";
 import "carbon-components-svelte/css/all.css";
 import Header from "$lib/components/header/Header.svelte";
 import LoaderSplash from "$lib/components/LoaderSplash.svelte";
-import { theme } from "$lib/shared/theme.svelte";
+import { theme } from "$lib/shared";
 
 let { children } = $props();
 </script>
