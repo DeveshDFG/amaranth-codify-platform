@@ -3,12 +3,15 @@ import { OverflowMenu, OverflowMenuItem } from "carbon-components-svelte";
 import { User } from "carbon-icons-svelte";
 import { authClient } from "$lib/auth-client";
 
-const session = authClient.useSession();
-let signedIn: boolean = $derived($session?.data !== null);
+let loggedIn = $state(false);
+let open = $state(false);
 </script>
 
-<OverflowMenu icon={User} flipped>
-    {#if signedIn}
+<OverflowMenu bind:open={open} icon={User} flipped on:click={async () => {
+    if (open) return;
+    loggedIn = !!(await authClient.getSession()).data
+}}>
+    {#if loggedIn}
         <OverflowMenuItem text="Account" href="/account"/>
         <OverflowMenuItem text="Sign Out" href="/sign-out"/>
     {:else}
