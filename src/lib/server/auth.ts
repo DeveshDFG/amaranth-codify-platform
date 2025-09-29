@@ -3,7 +3,7 @@ import { prismaAdapter } from "better-auth/adapters/prisma";
 import { username } from "better-auth/plugins/username";
 import { sveltekitCookies } from "better-auth/svelte-kit";
 import { getRequestEvent } from "$app/server";
-import { GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET } from "$env/static/private";
+import { GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, LINKEDIN_CLIENT_ID, LINKEDIN_CLIENT_SECRET } from "$env/static/private";
 import prisma from "./prisma";
 
 export const auth = betterAuth({
@@ -22,5 +22,10 @@ export const auth = betterAuth({
       prompt: "select_account",
       newUserCallbackUrl: "/",
     },
+      linkedin: { 
+          clientId: LINKEDIN_CLIENT_ID as string, 
+          clientSecret: LINKEDIN_CLIENT_SECRET as string, 
+          newUserCallbackUrl: "/",
+      }, 
   },
 });

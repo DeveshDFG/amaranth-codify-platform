@@ -7,6 +7,8 @@ import { useLoading } from "$lib/shared/loading.svelte";
 import { isValidEmail, isValidPassword, isValidUsername } from "$lib/string";
 import type { PageProps } from "./$types";
 import { signInGoogle } from "$lib/auth-client";
+import gLogo from "$lib/assets/Google__G__logo.svg";
+import linkInLogo from "$lib/assets/linkedin-svgrepo-com.svg";
 
 let { form }: PageProps = $props();
 
@@ -66,7 +68,9 @@ const { startLoading, stopLoading } = useLoading();
             <PasswordInput invalid={!passwordsMatch && shouldCheckMatchingPasswords} invalidText="Passwords must match" bind:value={passwordConfirmInput} labelText="Confirm Password" required />
             <Button {disabled} type="submit">Create Account</Button>
             <br>
-            <Button on:click={signInGoogle}>Sign in with Google</Button>
+            <Button on:click={signInGoogle}><img src={gLogo}> Sign in with Google</Button>
+            <br>
+            <Button type="button"><img src={linkInLogo}> Sign in with LinkedIn</Button>
         </form>
     {:else}
         <p>Account created successfully! Redirecting to sign in...</p><p>If it doesn't redirect automatically, <a href="/sign-in">click here</a>.</p>

@@ -4,6 +4,8 @@ import { applyAction, enhance } from "$app/forms";
 import { useLoading } from "$lib/shared/loading.svelte";
 import type { PageProps } from "./$types";
 import { signInGoogle } from "$lib/auth-client";
+import gLogo from "$lib/assets/Google__G__logo.svg";
+import linkInLogo from "$lib/assets/linkedin-svgrepo-com.svg";
 
 let { form }: PageProps = $props();
 
@@ -33,7 +35,9 @@ const { startLoading, stopLoading } = useLoading();
         <TextInput bind:value={passwordInput} labelText="Password" type="password" name="password" required />
         <Button disabled={invalid} type="submit">Sign In</Button>
         <br>
-        <Button on:click={signInGoogle}>Sign in with Google</Button>
+        <Button on:click={signInGoogle}><img src={gLogo}> Sign in with Google</Button>
+        <br>
+        <Button type="button"><img src={linkInLogo}> Sign in with LinkedIn</Button>
     </form>
 </div>
 
