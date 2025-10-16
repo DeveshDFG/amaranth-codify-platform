@@ -50,7 +50,7 @@ fi
 if ! env_var_exists "GOOGLE_CLIENT_SECRET"; then
     read -p "Enter GOOGLE_CLIENT_SECRET: " GOOGLE_CLIENT_SECRET
     add_env_var_if_missing "GOOGLE_CLIENT_SECRET" "$GOOGLE_CLIENT_SECRET"
-
+fi
 if ! env_var_exists "LINKEDIN_CLIENT_ID"; then
     read -p "Enter LINKEDIN_CLIENT_ID: " LINKEDIN_CLIENT_ID
     add_env_var_if_missing "LINKEDIN_CLIENT_ID" "$LINKEDIN_CLIENT_ID"

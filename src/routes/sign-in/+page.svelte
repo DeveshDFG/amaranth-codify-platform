@@ -4,6 +4,7 @@ import { applyAction, enhance } from "$app/forms";
 import { useLoading } from "$lib/shared/loading.svelte";
 import type { PageProps } from "./$types";
 import { signInGoogle } from "$lib/auth-client";
+import { signInLinkedIn } from "$lib/auth-client";
 import gLogo from "$lib/assets/Google__G__logo.svg";
 import linkInLogo from "$lib/assets/linkedin-svgrepo-com.svg";
 
@@ -37,7 +38,7 @@ const { startLoading, stopLoading } = useLoading();
         <br>
         <Button on:click={signInGoogle}><img src={gLogo}> Sign in with Google</Button>
         <br>
-        <Button type="button"><img src={linkInLogo}> Sign in with LinkedIn</Button>
+        <Button on:click={signInLinkedIn}><img src={linkInLogo}> Sign in with LinkedIn</Button>
     </form>
 </div>
 
