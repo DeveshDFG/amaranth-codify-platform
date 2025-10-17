@@ -3,3 +3,4 @@
 export * from "./auth-client";
 export * as shared from "./shared";
 export * from "./string";
+export * from "./util";
