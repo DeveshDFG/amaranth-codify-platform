@@ -22,7 +22,6 @@ onMount(async () => {
 
 <style>
     div {
-        padding: 4em;
         display: flex;
         flex-direction: column;
         gap: 1em;
