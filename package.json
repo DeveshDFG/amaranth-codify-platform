@@ -13,7 +13,7 @@
     "test:unit": "vitest",
     "test": "npm run test:unit -- --run",
     "format": "biome format --write .",
-    "format:prisma": "for file in prisma/schema/*.prisma; do npx prisma format \"$file\"; done",
+    "format:prisma": "npx prisma format",
     "db:studio": "prisma studio",
     "db:seed": "vite-node prisma/seed.ts",
     "db:migrate": "prisma migrate dev",
