@@ -3,10 +3,10 @@ import { Button, PasswordInput, TextInput } from "carbon-components-svelte";
 import { onMount } from "svelte";
 import { applyAction, enhance } from "$app/forms";
 import { goto } from "$app/navigation";
+import { signInGoogle } from "$lib/auth-client";
 import { useLoading } from "$lib/shared/loading.svelte";
 import { isValidEmail, isValidPassword, isValidUsername } from "$lib/string";
 import type { PageProps } from "./$types";
-import { signInGoogle } from "$lib/auth-client";
 
 let { form }: PageProps = $props();
 
@@ -78,6 +78,5 @@ const { startLoading, stopLoading } = useLoading();
         display: flex;
         flex-direction: column;
         gap: 1em;
-        padding: 4em;
     }
 </style>
