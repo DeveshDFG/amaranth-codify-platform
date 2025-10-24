@@ -1,5 +1,6 @@
 import { auth } from "$lib/server";
 import { isValidEmail, isValidPassword, isValidUsername } from "$lib/string";
+import { UserRole } from "$lib/types/user-role";
 import type { Actions } from "./$types";
 
 export const actions = {
@@ -29,7 +30,13 @@ export const actions = {
 
     try {
       await auth.api.signUpEmail({
-        body: { email, password, name: username, username },
+        body: {
+          email,
+          password,
+          name: username,
+          username,
+          role: UserRole.USER,
+        },
       });
     } catch (e: any) {
       return { success: false, message: e.body.message as string };
