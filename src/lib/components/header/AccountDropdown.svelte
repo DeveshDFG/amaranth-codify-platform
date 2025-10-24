@@ -12,7 +12,8 @@ let open = $state(false);
     signedIn = !!(await authClient.getSession()).data
 }}>
     {#if signedIn}
-        <OverflowMenuItem text="Account" href="/account"/>
+        <OverflowMenuItem text="Dashboard" href="/dashboard"/>
+        <OverflowMenuItem text="Account" href="/dashboard/account"/>
         <OverflowMenuItem text="Sign Out" href="/sign-out"/>
     {:else}
         <OverflowMenuItem text="Sign In" href="/sign-in"/>
