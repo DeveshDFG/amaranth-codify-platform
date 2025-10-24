@@ -33,6 +33,6 @@ export const actions = {
       }
     }
 
-    return redirect(303, "/");
+    return redirect(303, "/dashboard");
   },
 } satisfies Actions;
