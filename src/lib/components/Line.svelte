@@ -44,4 +44,9 @@ const {
 }: LineProps = $props();
 </script>
 
-<div style={`width: 100%; border-bottom: ${thickness}px ${style} ${color}`}></div>
+<div
+  style={`width: 100%; border-bottom: ${thickness}
+  px
+  ${style}
+  ${color}`}
+></div>
