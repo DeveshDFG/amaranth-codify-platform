@@ -21,6 +21,7 @@ header {
   padding: 0 4em;
   height: 3rem;
   border-bottom: 1px solid var(--cds-border-strong);
+  background: var(--cds-ui-background);
 }
 
 div {

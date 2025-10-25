@@ -20,6 +20,8 @@ let { children } = $props();
 
 <style>
 div {
-  padding-top: 3rem;
+  padding-top: 5em;
+  padding-left: 4em;
+  padding-right: 4em;
 }
 </style>

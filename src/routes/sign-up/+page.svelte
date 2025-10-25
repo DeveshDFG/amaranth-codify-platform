@@ -7,6 +7,7 @@ import {
 import { onMount } from "svelte";
 import { applyAction, enhance } from "$app/forms";
 import { goto } from "$app/navigation";
+import { signInGoogle } from "$lib/auth-client";
 import { useLoading } from "$lib/shared/loading.svelte";
 import { isValidEmail, isValidPassword, isValidUsername } from "$lib/string";
 import type { PageProps, SubmitFunction } from "./$types";
@@ -125,6 +126,5 @@ div {
   display: flex;
   flex-direction: column;
   gap: 1em;
-  padding: 4em;
 }
 </style>
