@@ -5,7 +5,7 @@
   },
   "formatter": {
     "enabled": true,
-    "includes": ["**/*.*", "!node_modules"],
+    "includes": ["**/*.*", "!node_modules", "!.svelte-kit"],
     "indentStyle": "space",
     "indentWidth": 2
   },
@@ -20,10 +20,17 @@
     "formatter": {
       "enabled": true,
       "quoteStyle": "double"
+    },
+    "parser": {
+      "cssModules": true
     }
   },
   "html": {
-    "experimentalFullSupportEnabled": true
+    "experimentalFullSupportEnabled": true,
+    "formatter": {
+      "enabled": true,
+      "indentWidth": 2
+    }
   },
   "overrides": [
     {
