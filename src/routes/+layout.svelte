@@ -5,6 +5,8 @@ import CustomHeader from "$lib/components/header/Header.svelte";
 import LoaderSplash from "$lib/components/LoaderSplash.svelte";
 import { theme } from "$lib/shared";
 
+import "./global.css";
+
 let { children } = $props();
 </script>
 
