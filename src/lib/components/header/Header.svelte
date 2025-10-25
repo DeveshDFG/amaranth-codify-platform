@@ -4,7 +4,9 @@ import ThemeSwitcher from "./ThemeSwitcher.svelte";
 </script>
 
 <header>
-  <h6><a href="/">Amaranth Codify</a></h6>
+  <h6>
+    <a href="/">Amaranth Codify</a>
+  </h6>
   <div>
     <AccountDropdown/>
     <ThemeSwitcher/>
