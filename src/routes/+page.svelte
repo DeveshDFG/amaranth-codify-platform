@@ -40,50 +40,56 @@ animateHeadlines();
 </script>
 
 <div class="container">
-    <h1>We Coach, <strong>You Close</strong></h1>
-    <h3 bind:this={headlineElement}>{currentMessage}<span class="cursor">|</span></h3>
-    <Line thickness={1} style="dotted"/>
-    <a href="/sign-up"><h2>Get Started</h2></a>
+  <h1>
+    We Coach, <strong>You Close</strong>
+  </h1>
+  <h3 bind:this={headlineElement}>
+    {currentMessage}
+    <span class="cursor">|</span>
+  </h3>
+  <Line thickness={1} style="dotted"/>
+  <a href="/sign-up"
+    ><h2>Get Started</h2></a
+  >
 </div>
 
 <style>
-    @keyframes blink {
-        50% {
-            opacity: 0;
-        }
-    }
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
 
-    * {
-        text-align: center;
-    }
-    div.container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        min-height: calc(100vh - 10em);
-        gap: 1em;
-    }
+* {
+  text-align: center;
+}
+div.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 10em);
+  gap: 1em;
+}
 
-    h3 > .cursor {
-        animation: blink 1s step-start 0s infinite;
-    }
+h3 > .cursor {
+  animation: blink 1s step-start 0s infinite;
+}
 
-    a {
-        text-decoration: none;
-        display: inline-block;
-        background: var(--cds-text-primary);
-        padding: 0.5em 1em;
-        color: var(--cds-ui-background);
-        transition: transform 0.2s ease;
-    }
+a {
+  text-decoration: none;
+  display: inline-block;
+  background: var(--cds-text-primary);
+  padding: 0.5em 1em;
+  color: var(--cds-ui-background);
+  transition: transform 0.2s ease;
+}
 
-    a:hover {
-        transform: scale(1.05);
-    }
+a:hover {
+  transform: scale(1.05);
+}
 
-    h2 {
-        cursor: pointer;
-    }
-
+h2 {
+  cursor: pointer;
+}
 </style>

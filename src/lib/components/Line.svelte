@@ -35,4 +35,9 @@ interface LineProps {
 const { thickness = 2, style = "solid" }: LineProps = $props();
 </script>
 
-<div style={`width: 100%; border-bottom: ${thickness}px ${style} var(--cds-text-primary)`}></div>
+<div
+  style={`width: 100%; border-bottom: ${thickness}
+  px
+  ${style}
+  var(--cds-text-primary)`}
+></div>
