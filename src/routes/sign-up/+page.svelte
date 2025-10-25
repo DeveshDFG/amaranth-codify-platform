@@ -11,7 +11,6 @@ import { signInGoogle } from "$lib/auth-client";
 import { useLoading } from "$lib/shared/loading.svelte";
 import { isValidEmail, isValidPassword, isValidUsername } from "$lib/string";
 import type { PageProps, SubmitFunction } from "./$types";
-import { signInGoogle } from "$lib/auth-client";
 
 let { form }: PageProps = $props();
 
