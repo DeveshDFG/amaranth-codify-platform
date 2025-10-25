@@ -8,6 +8,7 @@ import {
   GOOGLE_CLIENT_ID,
   GOOGLE_CLIENT_SECRET,
 } from "$env/static/private";
+import { UserRole } from "$lib/types/user-role";
 import prisma from "./prisma";
 
 export const auth = betterAuth({
@@ -26,6 +27,16 @@ export const auth = betterAuth({
       clientSecret: GOOGLE_CLIENT_SECRET,
       prompt: "select_account",
       newUserCallbackUrl: "/",
+    },
+  },
+  user: {
+    additionalFields: {
+      role: {
+        type: "string",
+        defaultValue: UserRole.USER,
+        required: true,
+        input: true,
+      },
     },
   },
 });

@@ -11,11 +11,11 @@
 ## Setup
 
 1. Clone the repository to your local machine.
-2. Make sure you have Node.js installed. You can find instructions to install it from [nodejs.org](https://nodejs.org/).
-3. Install `pnpm` if you haven't already. You can find instructions [here](https://pnpm.io/installation).
+2. Make sure you have Node.js installed. You can find instructions to install it from [nodejs.org](https://nodejs.org/). It's recommended to use Node.js version 24.
+3. Install `pnpm` if you haven't already. You can find instructions [here](https://pnpm.io/installation). It is recommended to use version 10.
 4. Install Docker from [docker.com](https://www.docker.com/get-started) and ensure it's running.
 5. Navigate to the project directory in your terminal.
-6. Run `./setup_env.sh` to create a `.env` with the necessary environment variables. If you need to reset or wipe the database due to changes in environment variables, see the [Emptying the Database](#emptying-the-database) section below.
+6. Run `./setup_env.sh` to create a `.env` with the necessary environment variables. You will need to input some external secrets, such as the Google OAuth credentials, through the CLI prompts. If you need to reset or wipe the database due to changes in environment variables, see the [Emptying the Database](#emptying-the-database) section below.
 7. Run the following command to install the dependencies so your editor can resolve them:
    ```bash
    pnpm install
@@ -105,6 +105,16 @@ and apply the migrations again with:
 docker-compose exec web pnpm db:migrate
 ```
 
+## CI/CD Pipeline
+
+The project uses GitHub Actions for continuous integration and deployment. The workflows are defined in the `.github/workflows` directory, which specifies various jobs that run on different events, such as pushes, pull requests, or at scheduled times.
+
+The only ones currently set up are `test.yaml` and `pr.yaml`, which run tests and checks on pull requests. It is recommended to ensure that all tests pass before merging any pull requests. At the moment, no specific unit or end-to-end tests are implemented, but this may change in the future; the test only checks if the application builds successfully.
+
+For now, there is no deployment workflow set up, though, in the future, additional workflows may be added for deployment or other tasks.
+
+To test the workflows locally, you can use [act](https://nektosact.com/). The results are not guaranteed to be identical to GitHub Actions, but it can help catch major issues before pushing changes.
+
 ## Contributing
 
 There are pre-commit hooks set up to ensure code quality and consistency, which will format your code and check commit messages before each commit.
@@ -120,3 +130,7 @@ Where:
 - `<type>` is one of the following: `build`, `chore`, `ci`, `docs`, `feat`, `fix`, `perf`, `refactor`, `revert`, `style`, `test`.
 - `<scope>` is an optional scope of the change (e.g., component or file name).
 - `<subject>` is a brief description of the change.
+
+In general, opt to make small, focused commits that address a single issue or feature. This makes it easier to review and understand the changes. When making changes, make pull requests instead of pushing directly to the main branch. There may be scenarios where even multiple pull requests are needed to implement a large feature.
+
+At the moment, reviews are not strictly enforced, but it is recommended to have at least one other person review your changes before merging, prompting any discussion if necessary. The pull requests make it easier to roll back changes if something goes wrong, even when no review occurred.
