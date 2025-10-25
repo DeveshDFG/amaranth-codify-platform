@@ -45,8 +45,8 @@ const {
 </script>
 
 <div
-  style={`width: 100%; border-bottom: ${thickness}
-  px
+  style={`width: 100%; border-bottom:
+  ${thickness.toString()+"px"}
   ${style}
   ${color}`}
 ></div>
