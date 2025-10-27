@@ -46,7 +46,8 @@ const { startLoading, stopLoading } = useLoading();
 
 <div>
     {#if !form || !form.success}
-        <h1>Sign Up</h1>
+        <h1>Sign Up</h1>LAgger
+        
         <p>Already have an account? <a href="/sign-in">Sign in</a></p>
         {#if !form?.success && form?.message}
             <p style="color: red">{form.message}</p>
