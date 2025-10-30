@@ -23,9 +23,7 @@ jobs:
         run: |
           pnpm install --frozen-lockfile --silent
 
-      - name: Setup env variables
-        run: |
-          echo -e "google_client_id\ngoogle_client_secret" | ./setup_env.sh
+      - uses: ./.github/actions/dummy-env-var
 
       - name: Build
         run: |
