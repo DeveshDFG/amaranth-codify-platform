@@ -1,0 +1,9 @@
+name: "Dummy Environment Variables"
+description: "A dummy action that does nothing but exists to provide an environment for other actions"
+
+runs:
+  using: "composite"
+  steps:
+    - shell: bash
+      run: |
+        echo -e "google_client_id\ngoogle_client_secret" | ./setup_env.sh
