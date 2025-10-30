@@ -11,9 +11,13 @@ let { children } = $props();
 
 <style>
 div#dashboard-layout {
-  display: flex;
+  display: grid;
   width: 100%;
-  flex-direction: row;
+  grid-template-columns: 1fr 7fr;
   gap: 2em;
+}
+
+div#dashboard-layout > div {
+  overflow: hidden;
 }
 </style>
