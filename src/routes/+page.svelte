@@ -68,7 +68,8 @@ div.container {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 10em);
+  height: calc(100vh - 6rem);
+  padding-bottom: 2rem;
   gap: 1em;
 }
 
