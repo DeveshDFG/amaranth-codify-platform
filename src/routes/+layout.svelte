@@ -2,6 +2,7 @@
 import favicon from "$lib/assets/favicon.svg";
 import "carbon-components-svelte/css/all.css";
 import CustomHeader from "$lib/components/header/Header.svelte";
+import CustomFooter from "$lib/components/footer/Footer.svelte";
 import LoaderSplash from "$lib/components/LoaderSplash.svelte";
 import { theme } from "$lib/shared";
 
@@ -18,6 +19,7 @@ let { children } = $props();
 {#if theme()}
 <CustomHeader/>
 <div>{@render children?.()}</div>
+<CustomFooter/>
 {/if}
 
 <style>
@@ -25,5 +27,7 @@ div {
   padding-top: 5em;
   padding-left: 4em;
   padding-right: 4em;
+  padding-bottom: 2em;
+  min-height: calc(100vh - 4rem);
 }
 </style>
