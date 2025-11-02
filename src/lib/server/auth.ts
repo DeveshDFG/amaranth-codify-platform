@@ -7,6 +7,8 @@ import {
   BETTER_AUTH_SECRET,
   GOOGLE_CLIENT_ID,
   GOOGLE_CLIENT_SECRET,
+  LINKEDIN_CLIENT_ID,
+  LINKEDIN_CLIENT_SECRET
 } from "$env/static/private";
 import { UserRole } from "$lib/types/user-role";
 import prisma from "./prisma";
@@ -26,6 +28,11 @@ export const auth = betterAuth({
       clientId: GOOGLE_CLIENT_ID,
       clientSecret: GOOGLE_CLIENT_SECRET,
       prompt: "select_account",
+      newUserCallbackUrl: "/",
+    },
+    linkedin: {
+      clientId: LINKEDIN_CLIENT_ID,
+      clientSecret: LINKEDIN_CLIENT_SECRET,
       newUserCallbackUrl: "/",
     },
   },

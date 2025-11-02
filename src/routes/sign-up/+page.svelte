@@ -7,10 +7,12 @@ import {
 import { onMount } from "svelte";
 import { applyAction, enhance } from "$app/forms";
 import { goto } from "$app/navigation";
-import { signInGoogle } from "$lib/auth-client";
+import { signInGoogle, signInLinkedIn } from "$lib/auth-client";
 import { useLoading } from "$lib/shared/loading.svelte";
 import { isValidEmail, isValidPassword, isValidUsername } from "$lib/string";
 import type { PageProps, SubmitFunction } from "./$types";
+import gLogo from "$lib/assets/Google__G__logo.svg";
+import linkInLogo from "$lib/assets/linkedin-svgrepo-com.svg";
 
 let { form }: PageProps = $props();
 
@@ -110,7 +112,9 @@ const submitForm: SubmitFunction = () => {
       Create Account
     </CarbonButton>
     <br>
-    <CarbonButton on:click={signInGoogle}>Sign in with Google</CarbonButton>
+    <CarbonButton on:click={signInGoogle}><img src={gLogo}> Sign in with Google</CarbonButton>
+    <br>
+    <CarbonButton on:click={signInLinkedIn}><img src={linkInLogo}> Sign in with LinkedIn</CarbonButton>
   </form>
   {:else}
   <p>Account created successfully! Redirecting to sign in...</p>
