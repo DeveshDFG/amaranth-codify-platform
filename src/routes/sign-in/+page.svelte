@@ -58,9 +58,15 @@ const submitForm: SubmitFunction = () => {
     />
     <CarbonButton disabled={invalid} type="submit">Sign In</CarbonButton>
     <br>
-    <CarbonButton on:click={signInGoogle}><img src={gLogo}> Sign in with Google</CarbonButton>
+    <CarbonButton on:click={signInGoogle}>
+      <img src={gLogo}>
+      Sign in with Google
+    </CarbonButton>
     <br>
-    <CarbonButton on:click={signInLinkedIn}><img src={linkInLogo}> Sign in with LinkedIn</CarbonButton>
+    <CarbonButton on:click={signInLinkedIn}>
+      <img src={linkInLogo}>
+      Sign in with LinkedIn
+    </CarbonButton>
   </form>
 </div>
 

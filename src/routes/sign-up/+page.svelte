@@ -112,9 +112,15 @@ const submitForm: SubmitFunction = () => {
       Create Account
     </CarbonButton>
     <br>
-    <CarbonButton on:click={signInGoogle}><img src={gLogo}> Sign in with Google</CarbonButton>
+    <CarbonButton on:click={signInGoogle}>
+      <img src={gLogo}>
+      Sign in with Google
+    </CarbonButton>
     <br>
-    <CarbonButton on:click={signInLinkedIn}><img src={linkInLogo}> Sign in with LinkedIn</CarbonButton>
+    <CarbonButton on:click={signInLinkedIn}>
+      <img src={linkInLogo}>
+      Sign in with LinkedIn
+    </CarbonButton>
   </form>
   {:else}
   <p>Account created successfully! Redirecting to sign in...</p>

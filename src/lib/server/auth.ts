@@ -8,7 +8,7 @@ import {
   GOOGLE_CLIENT_ID,
   GOOGLE_CLIENT_SECRET,
   LINKEDIN_CLIENT_ID,
-  LINKEDIN_CLIENT_SECRET
+  LINKEDIN_CLIENT_SECRET,
 } from "$env/static/private";
 import { UserRole } from "$lib/types/user-role";
 import prisma from "./prisma";
