@@ -13,4 +13,3 @@ export const signInGoogle = async () => {
 export const signInLinkedIn = async () => {
   await authClient.signIn.social({ provider: "linkedin" });
 };
-
