@@ -1,8 +1,9 @@
 <script lang="ts">
-import { onMount } from "svelte";
 import type { PageProps } from "./$types";
 import Line from "$lib/components/Line.svelte";
 import DataTable from "$lib/components/datatable/DataTable.svelte";
+import { Tab, TabContent, Tabs } from "carbon-components-svelte";
+import MeetingForm from "$lib/components/dashboard/admin/MeetingForm.svelte";
 
 let { data }: PageProps = $props();
 
@@ -20,4 +21,15 @@ const fetchUsers = async () => {
 <h1>Admin</h1>
 <Line thickness={1}/>
 <br>
-<DataTable data={users} refetch={fetchUsers}/>
+<Tabs autoWidth={true}>
+  <Tab label="Meeting Management"/>
+  <Tab label="User Management"/>
+  <svelte:fragment slot="content">
+    <TabContent>
+      <MeetingForm/>
+    </TabContent>
+    <TabContent>
+      <DataTable data={users} refetch={fetchUsers}/>
+    </TabContent>
+  </svelte:fragment>
+</Tabs>
