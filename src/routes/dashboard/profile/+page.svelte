@@ -74,7 +74,6 @@ const { user } = data;
 }
 
 .profile-form {
-  background-color: white;
   padding: 2rem 2.5rem;
   border: 1px solid #d0d7de;
   border-radius: 8px;
@@ -88,7 +87,6 @@ const { user } = data;
   text-align: center;
   font-size: 1.5rem;
   font-weight: 600;
-  color: #24292f;
   margin-bottom: 1.5rem;
 }
 
@@ -147,7 +145,6 @@ const { user } = data;
 .info label {
   font-size: 0.9rem;
   font-weight: 500;
-  color: #24292f;
   margin-bottom: 0.3rem;
 }
 
