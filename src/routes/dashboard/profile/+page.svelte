@@ -74,6 +74,7 @@ const { user } = data;
 }
 
 .profile-form {
+  background-color: white;
   padding: 2rem 2.5rem;
   border: 1px solid #d0d7de;
   border-radius: 8px;
