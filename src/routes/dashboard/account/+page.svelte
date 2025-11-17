@@ -6,6 +6,9 @@ import {
   Button as CarbonButton,
   PasswordInput,
 } from "carbon-components-svelte";
+import type { PageProps } from "./$types";
+
+let { data }: PageProps = $props();
 
 let currentPassword = $state("");
 let newPassword = $state("");
@@ -57,6 +60,34 @@ const submitForm = async (event: Event) => {
 <h1>Account Settings</h1>
 <Line thickness={1}/>
 <br>
+{#if data.user}
+<p>
+  <b>ID:</b>
+  {data.user.id}
+</p>
+<p>
+  <b>Username:</b>
+  {data.user.username}
+</p>
+<p>
+  <b>Email:</b>
+  {data.user.email}
+  {data.user.emailVerified ? "(Verified)" : "(Not verified)"}
+</p>
+<p>
+  <b>Role:</b>
+  {data.user.role}
+</p>
+<p>
+  <b>Created At:</b>
+  {new Date(data.user.createdAt).toLocaleString()}
+</p>
+<p>
+  <b>Updated At:</b>
+  {new Date(data.user.updatedAt).toLocaleString()}
+</p>
+<br>
+{/if}
 <h3>Change Password</h3>
 <br>
 {#if errorMessage}
