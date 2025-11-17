@@ -1,6 +1,8 @@
 import { redirect } from "@sveltejs/kit";
 import type { PageServerLoad, Actions } from "./$types";
 import prisma from "$lib/server/prisma";
+import fs from "fs/promises";
+import path from "path";
 
 export const load: PageServerLoad = async ({ locals }) => {
   if (!locals.user || !locals.session) {
@@ -9,13 +11,6 @@ export const load: PageServerLoad = async ({ locals }) => {
 
   const dbUser = (await prisma.user.findUnique({
     where: { id: locals.user.id },
-    select: {
-      id: true,
-      username: true,
-      email: true,
-      name: true,
-      image: true,
-    },
   })) as any;
 
   const source = dbUser ?? locals.user;
@@ -25,7 +20,7 @@ export const load: PageServerLoad = async ({ locals }) => {
     username: source.username ?? source.displayUsername ?? "",
     email: source.email ?? "",
     name: source.name ?? source.username ?? "",
-    bio: source.bio ?? "Software Developer",
+    bio: source.bio ?? "",
     location: source.location ?? "",
     interests: Array.isArray(source.interests)
       ? source.interests
@@ -34,11 +29,8 @@ export const load: PageServerLoad = async ({ locals }) => {
             .split(",")
             .map((s: string) => s.trim())
             .filter(Boolean)
-        : ["Coding", "Hiking", "Photography"],
-    avatar:
-      source.avatar ??
-      source.image ??
-      "https://img.freepik.com/premium-photo/male-female-profile-avatar-user-avatars-gender-icons_1020867-75355.jpg",
+        : [""],
+    avatar: source.avatar ?? source.image ?? null,
   };
 
   return { user };
@@ -56,6 +48,30 @@ export const actions: Actions = {
       const bio = (form.get("bio") as string) ?? "";
       const location = (form.get("location") as string) ?? "";
       const interestsRaw = (form.get("interests") as string) ?? "";
+
+      let avatarUrl: string | undefined;
+      try {
+        const avatarField = form.get("avatar");
+        if (
+          avatarField &&
+          (avatarField as any).size &&
+          typeof (avatarField as any).arrayBuffer === "function"
+        ) {
+          const avatarFile: any = avatarField;
+          const originalName = path.basename(avatarFile.name || "avatar");
+          const safeName = originalName.replace(/[^a-zA-Z0-9._-]/g, "_");
+          const filename = `${locals.user.id}-${Date.now()}-${safeName}`;
+          const uploadsDir = path.join(process.cwd(), "static", "uploads");
+          await fs.mkdir(uploadsDir, { recursive: true });
+          const filePath = path.join(uploadsDir, filename);
+          const buffer = Buffer.from(await avatarFile.arrayBuffer());
+          await fs.writeFile(filePath, buffer);
+          avatarUrl = `/uploads/${filename}`;
+        }
+      } catch (uploadErr) {
+        console.error("avatar upload failed:", uploadErr);
+        avatarUrl = undefined;
+      }
       const interests = interestsRaw
         .split(",")
         .map((s) => s.trim())
@@ -67,17 +83,14 @@ export const actions: Actions = {
         location: location || undefined,
         interests,
       };
+      if (avatarUrl) updateData.avatar = avatarUrl;
 
-      const updated = (await prisma.user.update({
+      await prisma.user.update({
         where: { id: locals.user.id },
         data: updateData,
-        select: {
-          id: true,
-          username: true,
-          email: true,
-          name: true,
-          image: true,
-        },
+      });
+      const updated = (await prisma.user.findUnique({
+        where: { id: locals.user.id },
       })) as any;
 
       const responseUser = {

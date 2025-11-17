@@ -1,8 +1,29 @@
 <script lang="ts">
+import { onDestroy } from "svelte";
 import type { PageData } from "./$types";
 export let data: PageData;
 
 const { user } = data;
+
+let preview: string | null = null;
+
+function handleAvatarChange(e: Event) {
+  const input = e.target as HTMLInputElement;
+  const file = input.files?.[0];
+  if (file) {
+    if (preview) URL.revokeObjectURL(preview);
+    preview = URL.createObjectURL(file);
+  } else {
+    if (preview) {
+      URL.revokeObjectURL(preview);
+      preview = null;
+    }
+  }
+}
+
+onDestroy(() => {
+  if (preview) URL.revokeObjectURL(preview);
+});
 </script>
 
 <div class="profile-page">
@@ -18,7 +39,7 @@ const { user } = data;
     <div class="avatar-section">
       <label for="avatar" class="avatar-label">
         <img
-          src="https://img.freepik.com/premium-photo/male-female-profile-avatar-user-avatars-gender-icons_1020867-75355.jpg"
+          src={preview ?? user.avatar ?? "https://img.freepik.com/premium-photo/male-female-profile-avatar-user-avatars-gender-icons_1020867-75355.jpg"}
           alt={user.name}
           class="avatar-img"
         >
@@ -30,6 +51,7 @@ const { user } = data;
         name="avatar"
         accept="image/*"
         class="avatar-input"
+        on:change={handleAvatarChange}
       >
     </div>
 
