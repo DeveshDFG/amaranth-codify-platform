@@ -22,7 +22,8 @@ const fetchUsers = async () => {
 <Line thickness={1}/>
 <br>
 <Tabs autoWidth={true}>
-  <Tab label="Meeting Management"/>
+  <Tab label="Create Meetings"/>
+  <Tab label="Manage Meetings"/>
   <Tab label="User Management"/>
   <svelte:fragment slot="content">
     <TabContent>

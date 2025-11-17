@@ -78,8 +78,12 @@ const timePickerStringSetter = (event: Event) => {
 
 const submitForm: SubmitFunction = ({ formData }) => {
   {
-    formData.set("time", dateTimeValue.toISOString());
-    formData.delete("date");
+    const iso = dateTimeValue.toISOString();
+    const date = iso.slice(0,10);
+    const time = iso.slice(11,16);
+    
+    formData.set("date", date);
+    formData.set("time", time);
     startLoading();
     return async ({ result }) => {
       if (result.type === "success" && result.data && result.data.success) {

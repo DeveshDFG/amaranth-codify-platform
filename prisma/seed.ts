@@ -22,7 +22,7 @@ const EMAIL_DOMAINS = [
 ];
 
 // 1000 dummy users
-for (let i = 1; i <= 1000; i++) {
+for (let i = 1; i <= 10; i++) {
   const username = randomString();
   await authClient.signUp.email({
     email: `${username}@${EMAIL_DOMAINS[Math.floor(Math.random() * EMAIL_DOMAINS.length)]}`,
