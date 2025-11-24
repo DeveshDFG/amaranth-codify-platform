@@ -18,9 +18,9 @@ function toggleTheme() {
   iconDescription={darkMode ? "Switch to light mode" : "Switch to dark mode"}
 >
   {#if darkMode}
-  <Moon slot="icon" color="white"/>
+    <Moon slot="icon" color="white"/>
   {:else}
-  <Sun slot="icon" color="black"/>
+    <Sun slot="icon" color="black"/>
   {/if}
 </CarbonButton>
 <Theme theme={theme() ?? "g10"}/>

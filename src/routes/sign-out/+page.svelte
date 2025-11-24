@@ -12,13 +12,14 @@ onMount(async () => {
 
 <div>
   {#if signedOut}
-  <h1>Signed Out</h1>
-  <p>
-    You have been successfully signed out. <a href="/sign-in">Sign in again</a>
-  </p>
+    <h1>Signed Out</h1>
+    <p>
+      You have been successfully signed out.
+      <a href="/sign-in">Sign in again</a>
+    </p>
   {:else}
-  <h1>Signing Out...</h1>
-  <p>Please wait while we sign you out.</p>
+    <h1>Signing Out...</h1>
+    <p>Please wait while we sign you out.</p>
   {/if}
 </div>
 

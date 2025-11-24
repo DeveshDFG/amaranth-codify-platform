@@ -15,14 +15,14 @@ let {
 <div>
   <h4>{title}</h4>
   {#if refetch}
-  <CarbonButton
-    size="small"
-    kind="secondary"
-    on:click={refetch}
-    icon={Restart}
-    iconDescription="Refetch"
-    tooltipPosition="left"
-  />
+    <CarbonButton
+      size="small"
+      kind="secondary"
+      on:click={refetch}
+      icon={Restart}
+      iconDescription="Refetch"
+      tooltipPosition="left"
+    />
   {/if}
 </div>
 <Line color="var(--cds-layer)"/>
