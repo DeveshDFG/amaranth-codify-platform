@@ -34,7 +34,7 @@ const submitForm: SubmitFunction = () => {
     Don't have an account? <a href="/sign-up">Sign up</a>
   </p>
   {#if !form?.success && form?.message}
-  <p style="color: red">{form.message}</p>
+    <p style="color: red">{form.message}</p>
   {/if}
   <form
     method="POST"

@@ -98,37 +98,37 @@ const submitForm: SubmitFunction = ({ formData }) => {
 </script>
 
 {#if success !== null}
-{#if success}
-<ToastNotification
-  hideCloseButton={true}
-  fullWidth={true}
-  kind="success"
-  title="Success"
-  subtitle={resultMessage}
-  timeout={5000}
-  lowContrast={true}
-  on:close={(e) => {
+  {#if success}
+    <ToastNotification
+      hideCloseButton={true}
+      fullWidth={true}
+      kind="success"
+      title="Success"
+      subtitle={resultMessage}
+      timeout={5000}
+      lowContrast={true}
+      on:close={(e) => {
                 e.preventDefault();
             }}
->
-  <a href={`/dashboard?meeting=${resultMeetingId} `} slot="caption"
-    >View meeting</a
-  >
-</ToastNotification>
-{:else}
-<ToastNotification
-  hideCloseButton={true}
-  fullWidth={true}
-  kind="error"
-  title="Error"
-  subtitle={resultMessage}
-  timeout={5000}
-  lowContrast={true}
-  on:close={(e) => {
+    >
+      <a href={`/dashboard?meeting=${resultMeetingId} `} slot="caption"
+        >View meeting</a
+      >
+    </ToastNotification>
+  {:else}
+    <ToastNotification
+      hideCloseButton={true}
+      fullWidth={true}
+      kind="error"
+      title="Error"
+      subtitle={resultMessage}
+      timeout={5000}
+      lowContrast={true}
+      on:close={(e) => {
                 e.preventDefault();
             }}
-/>
-{/if}
+    />
+  {/if}
 {/if}
 <form
   style="display: flex; flex-direction: column; gap: 1em;"

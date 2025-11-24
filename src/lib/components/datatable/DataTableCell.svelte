@@ -8,11 +8,11 @@ const { key, value }: { key: string; value: string } = $props();
 </script>
 
 {#if key === "id"}
-{(value as string).slice(0,8)}
+  <p>{(value as string).slice(0,8)}</p>
 {:else if key === "createdAt" || key === "updatedAt"}
-{new Date(value).toLocaleString()}
+  <p>{new Date(value).toLocaleString()}</p>
 {:else if key === "email"}
-<a href={"mailto:" + value}>{value}</a>
+  <a href={"mailto:" + value}>{value}</a>
 {:else}
-{value}
+  <p>{value}</p>
 {/if}

@@ -12,8 +12,8 @@ const session = authClient.useSession();
   <SideNavBarLink label="Account" path="/dashboard/account"/>
   <SideNavBarLink label="Profile" path="/dashboard/profile"/>
   {#if $session.data?.user?.role === UserRole.ADMIN}
-  <Line thickness={1} color="var(--cds-border-strong)"/>
-  <SideNavBarLink label="Admin Panel" path="/dashboard/admin"/>
+    <Line thickness={1} color="var(--cds-border-strong)"/>
+    <SideNavBarLink label="Admin Panel" path="/dashboard/admin"/>
   {/if}
 </div>
 

@@ -6,9 +6,9 @@ const { isLoading } = useLoading();
 </script>
 
 {#if isLoading()}
-<div>
-  <Loading/>
-</div>
+  <div>
+    <Loading/>
+  </div>
 {/if}
 
 <style>
