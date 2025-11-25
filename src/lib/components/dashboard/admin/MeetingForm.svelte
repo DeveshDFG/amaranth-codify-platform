@@ -14,18 +14,24 @@ import {
   Button as CarbonButton,
   ToastNotification,
 } from "carbon-components-svelte";
+import { theme } from "$lib/shared/theme.svelte";
 import type { PageProps } from "../../../../routes/dashboard/admin/$types";
+import { afterNavigate } from "$app/navigation";
 
 const { startLoading, stopLoading } = useLoading();
 
+let darkMode = $derived(theme() === "g100");
+
 let success: boolean | null = $state(null);
 let resultMessage: string = $state("");
-let resultMeetingId: string = $state("");
+let resultMeetingId: string | null = $state(null);
+
+// add a ref to the form
+let formEl: HTMLFormElement | null = null;
 
 const dateTimeValue = $state(new Date());
 dateTimeValue.setDate(dateTimeValue.getDate() + 1);
 dateTimeValue.setSeconds(0);
-// Round minutes to nearest 15
 const minutes = dateTimeValue.getMinutes();
 const roundedMinutes = Math.round(minutes / 15) * 15;
 dateTimeValue.setMinutes(roundedMinutes);
@@ -77,24 +83,42 @@ const timePickerStringSetter = (event: Event) => {
 };
 
 const submitForm: SubmitFunction = ({ formData }) => {
-  {
-    formData.set("time", dateTimeValue.toISOString());
-    formData.delete("date");
-    startLoading();
-    return async ({ result }) => {
-      if (result.type === "success" && result.data && result.data.success) {
-        success = true;
-        resultMessage = "Meeting created successfully.";
-        resultMeetingId = result.data.meetingId;
-        await applyAction(result);
-      } else {
-        success = false;
-        resultMessage = "Failed to create meeting.";
-      }
+  const iso = dateTimeValue.toISOString();
+  const date = iso.slice(0, 10);
+  const time = iso.slice(11, 16);
+
+  formData.set("date", date);
+  formData.set("time", time);
+  startLoading();
+
+  return async ({ result }) => {
+    if (result.type === "failure") {
+      success = false;
+      const dataAny = result.data as any;
+      resultMessage =
+        (dataAny && dataAny.message) || "Failed to create meeting.";
+      await applyAction(result);
       stopLoading();
-    };
-  }
+      return;
+    }
+    await applyAction(result);
+    stopLoading();
+  };
 };
+
+if (typeof window !== "undefined") {
+  afterNavigate(() => {
+    const params = new URLSearchParams(window.location.search);
+    const meeting = params.get("meeting");
+
+    if (meeting) {
+      formEl?.reset();
+      success = true;
+      resultMessage = "Meeting created successfully.";
+      resultMeetingId = meeting;
+    }
+  });
+}
 </script>
 
 {#if success !== null}
@@ -135,6 +159,7 @@ const submitForm: SubmitFunction = ({ formData }) => {
   method="POST"
   action="/dashboard/admin?/create-meeting"
   use:enhance={submitForm}
+  bind:this={formEl}
 >
   <DatePicker
     datePickerType="single"
@@ -172,6 +197,13 @@ const submitForm: SubmitFunction = ({ formData }) => {
     name="description"
     labelText="Meeting description"
     placeholder="Enter meeting description"
+  />
+  <TextInput
+    name="link"
+    labelText="Meeting link"
+    placeholder="https://zoom.us/j/..."
+    pattern="https://.*"
+    title="Link need to start with https://"
   />
   <CarbonButton type="submit">Create Meeting</CarbonButton>
 </form>

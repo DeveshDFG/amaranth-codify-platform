@@ -15,6 +15,7 @@ model User {
   sessions        Session[]
   accounts        Account[]
   role            String    @default("USER")
+  meetings        Meeting[]
 
   @@unique([email])
   @@map("user")
@@ -63,4 +64,17 @@ model Verification {
   updatedAt  DateTime @default(now()) @updatedAt
 
   @@map("verification")
+}
+
+model Meeting {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  startAt     DateTime
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  link        String?
+
+  createdBy   User?    @relation(fields: [createdById], references: [id])
+  createdById String?
 }
