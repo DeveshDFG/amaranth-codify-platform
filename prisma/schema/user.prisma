@@ -69,6 +69,7 @@ model Meeting {
   startAt     DateTime
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  link        String?
 
   createdBy   User?    @relation(fields: [createdById], references: [id])
   createdById String?
