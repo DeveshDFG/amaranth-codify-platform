@@ -17,11 +17,11 @@ let open = $state(false);
 }}
 >
   {#if signedIn}
-  <OverflowMenuItem text="Dashboard" href="/dashboard"/>
-  <OverflowMenuItem text="Account" href="/dashboard/account"/>
-  <OverflowMenuItem text="Sign Out" href="/sign-out"/>
+    <OverflowMenuItem text="Dashboard" href="/dashboard"/>
+    <OverflowMenuItem text="Account" href="/dashboard/account"/>
+    <OverflowMenuItem text="Sign Out" href="/sign-out"/>
   {:else}
-  <OverflowMenuItem text="Sign In" href="/sign-in"/>
-  <OverflowMenuItem text="Sign Up" href="/sign-up"/>
+    <OverflowMenuItem text="Sign In" href="/sign-in"/>
+    <OverflowMenuItem text="Sign Up" href="/sign-up"/>
   {/if}
 </OverflowMenu>

@@ -17,9 +17,9 @@ let { children } = $props();
 
 <LoaderSplash/>
 {#if theme()}
-<CustomHeader/>
-<div>{@render children?.()}</div>
-<CustomFooter/>
+  <CustomHeader/>
+  <div>{@render children?.()}</div>
+  <CustomFooter/>
 {/if}
 
 <style>

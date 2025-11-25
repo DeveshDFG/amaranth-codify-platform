@@ -5,9 +5,15 @@
   },
   "formatter": {
     "enabled": true,
-    "includes": ["**/*.*", "!node_modules", "!.svelte-kit"],
+    "includes": [
+      "**/*.*",
+      "!node_modules",
+      "!.svelte-kit",
+      "!src/lib/components/dashboard/admin/MeetingForm.svelte"
+    ],
     "indentStyle": "space",
-    "indentWidth": 2
+    "indentWidth": 2,
+    "formatWithErrors": true
   },
   "javascript": {
     "formatter": {

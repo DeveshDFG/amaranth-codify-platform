@@ -61,42 +61,42 @@ const submitForm = async (event: Event) => {
 <Line thickness={1}/>
 <br>
 {#if data.user}
-<p>
-  <b>ID:</b>
-  {data.user.id}
-</p>
-<p>
-  <b>Username:</b>
-  {data.user.username}
-</p>
-<p>
-  <b>Email:</b>
-  {data.user.email}
-  {data.user.emailVerified ? "(Verified)" : "(Not verified)"}
-</p>
-<p>
-  <b>Role:</b>
-  {data.user.role}
-</p>
-<p>
-  <b>Created At:</b>
-  {new Date(data.user.createdAt).toLocaleString()}
-</p>
-<p>
-  <b>Updated At:</b>
-  {new Date(data.user.updatedAt).toLocaleString()}
-</p>
-<br>
+  <p>
+    <b>ID:</b>
+    {data.user.id}
+  </p>
+  <p>
+    <b>Username:</b>
+    {data.user.username}
+  </p>
+  <p>
+    <b>Email:</b>
+    {data.user.email}
+    {data.user.emailVerified ? "(Verified)" : "(Not verified)"}
+  </p>
+  <p>
+    <b>Role:</b>
+    {data.user.role}
+  </p>
+  <p>
+    <b>Created At:</b>
+    {new Date(data.user.createdAt).toLocaleString()}
+  </p>
+  <p>
+    <b>Updated At:</b>
+    {new Date(data.user.updatedAt).toLocaleString()}
+  </p>
+  <br>
 {/if}
 <h3>Change Password</h3>
 <br>
 {#if errorMessage}
-<p style="color: red">{errorMessage}</p>
-<br>
+  <p style="color: red">{errorMessage}</p>
+  <br>
 {/if}
 {#if successMessage}
-<p style="color: green">{successMessage}</p>
-<br>
+  <p style="color: green">{successMessage}</p>
+  <br>
 {/if}
 <form method="POST" class="bx--form--fluid  bx--form" onsubmit={submitForm}>
   <PasswordInput
